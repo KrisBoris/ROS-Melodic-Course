@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/k/ROS-Melodic-Course/ros_ws/devel/setup.sh
