@@ -144,6 +144,12 @@ target_link_libraries(robot_news_station ${catkin_LIBRARIES})
 add_executable(smartphone src/smartphone.cpp)
 target_link_libraries(smartphone ${catkin_LIBRARIES})
 
+add_executable(number_publisher src/number_publisher.cpp)
+target_link_libraries(number_publisher ${catkin_LIBRARIES})
+
+add_executable(number_counter src/number_counter.cpp)
+target_link_libraries(number_counter ${catkin_LIBRARIES})
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use

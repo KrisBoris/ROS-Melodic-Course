@@ -5,7 +5,7 @@ from std_msgs.msg import String
 
 
 def main(args=None):
-    rospy.init_node("robot_news_station")
+    rospy.init_node("robot_news_station", anonymous=True)
 
     pub = rospy.Publisher("robot_news_radio", String, queue_size=10)
 
