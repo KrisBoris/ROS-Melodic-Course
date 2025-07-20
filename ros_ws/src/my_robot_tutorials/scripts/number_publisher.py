@@ -9,7 +9,8 @@ def main(args=None):
 
     number = 4
     publisher = rospy.Publisher("number", Int64, queue_size=10)
-    rate = rospy.Rate(1.0 / 2.0)
+    frequency = rospy.get_param("/number_publisher_freq", 2.0)
+    rate = rospy.Rate(frequency)
 
     rospy.loginfo("number_publisher node has been created")
 

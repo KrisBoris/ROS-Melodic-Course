@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /home/k/ROS-Melodic-Course/ros_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -80,6 +68,16 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -90,6 +88,18 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target test
 test:
@@ -102,27 +112,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -134,6 +123,17 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+my_robot_tutorials/CMakeFiles/led_panel.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/led_panel.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/led_panel.dir/rule
+
+# Convenience name for target.
+led_panel: my_robot_tutorials/CMakeFiles/led_panel.dir/rule
+
+.PHONY : led_panel
+
+# fast build rule for target.
+led_panel/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/led_panel.dir/build.make my_robot_tutorials/CMakeFiles/led_panel.dir/build
+.PHONY : led_panel/fast
+
+# Convenience name for target.
 my_robot_tutorials/CMakeFiles/add_two_ints_client.dir/rule:
 	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/add_two_ints_client.dir/rule
 .PHONY : my_robot_tutorials/CMakeFiles/add_two_ints_client.dir/rule
@@ -183,19 +198,214 @@ add_two_ints_client/fast:
 .PHONY : add_two_ints_client/fast
 
 # Convenience name for target.
-my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/rule
+my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-add_two_ints_server: my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/rule
+std_srvs_generate_messages_nodejs: my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
 
-.PHONY : add_two_ints_server
+.PHONY : std_srvs_generate_messages_nodejs
 
 # fast build rule for target.
-add_two_ints_server/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/build.make my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/build
-.PHONY : add_two_ints_server/fast
+std_srvs_generate_messages_nodejs/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
+.PHONY : std_srvs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_py: my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+.PHONY : std_srvs_generate_messages_py
+
+# fast build rule for target.
+std_srvs_generate_messages_py/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_py.dir/build.make my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+rospy_tutorials_generate_messages_lisp: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/rule
+
+.PHONY : rospy_tutorials_generate_messages_lisp
+
+# fast build rule for target.
+rospy_tutorials_generate_messages_lisp/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/build
+.PHONY : rospy_tutorials_generate_messages_lisp/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_eus: my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+
+.PHONY : std_srvs_generate_messages_eus
+
+# fast build rule for target.
+std_srvs_generate_messages_eus/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_eus.dir/build
+.PHONY : std_srvs_generate_messages_eus/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rospy_tutorials_generate_messages_cpp: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/rule
+
+.PHONY : rospy_tutorials_generate_messages_cpp
+
+# fast build rule for target.
+rospy_tutorials_generate_messages_cpp/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/build
+.PHONY : rospy_tutorials_generate_messages_cpp/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/node_cpp.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/node_cpp.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/node_cpp.dir/rule
+
+# Convenience name for target.
+node_cpp: my_robot_tutorials/CMakeFiles/node_cpp.dir/rule
+
+.PHONY : node_cpp
+
+# fast build rule for target.
+node_cpp/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/node_cpp.dir/build.make my_robot_tutorials/CMakeFiles/node_cpp.dir/build
+.PHONY : node_cpp/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_cpp: my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+rospy_tutorials_generate_messages_eus: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/rule
+
+.PHONY : rospy_tutorials_generate_messages_eus
+
+# fast build rule for target.
+rospy_tutorials_generate_messages_eus/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/build
+.PHONY : rospy_tutorials_generate_messages_eus/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+rospy_tutorials_generate_messages_nodejs: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/rule
+
+.PHONY : rospy_tutorials_generate_messages_nodejs
+
+# fast build rule for target.
+rospy_tutorials_generate_messages_nodejs/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/build
+.PHONY : rospy_tutorials_generate_messages_nodejs/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/rule
+
+# Convenience name for target.
+rospy_tutorials_generate_messages_py: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/rule
+
+.PHONY : rospy_tutorials_generate_messages_py
+
+# fast build rule for target.
+rospy_tutorials_generate_messages_py/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/build
+.PHONY : rospy_tutorials_generate_messages_py/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/smartphone.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/smartphone.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/smartphone.dir/rule
+
+# Convenience name for target.
+smartphone: my_robot_tutorials/CMakeFiles/smartphone.dir/rule
+
+.PHONY : smartphone
+
+# fast build rule for target.
+smartphone/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/smartphone.dir/build.make my_robot_tutorials/CMakeFiles/smartphone.dir/build
+.PHONY : smartphone/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/battery_monitor.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/battery_monitor.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/battery_monitor.dir/rule
+
+# Convenience name for target.
+battery_monitor: my_robot_tutorials/CMakeFiles/battery_monitor.dir/rule
+
+.PHONY : battery_monitor
+
+# fast build rule for target.
+battery_monitor/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/battery_monitor.dir/build.make my_robot_tutorials/CMakeFiles/battery_monitor.dir/build
+.PHONY : battery_monitor/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_lisp: my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+
+.PHONY : std_srvs_generate_messages_lisp
+
+# fast build rule for target.
+std_srvs_generate_messages_lisp/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make my_robot_tutorials/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+.PHONY : std_srvs_generate_messages_lisp/fast
+
+# Convenience name for target.
+my_robot_tutorials/CMakeFiles/number_counter.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/number_counter.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/number_counter.dir/rule
+
+# Convenience name for target.
+number_counter: my_robot_tutorials/CMakeFiles/number_counter.dir/rule
+
+.PHONY : number_counter
+
+# fast build rule for target.
+number_counter/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/number_counter.dir/build.make my_robot_tutorials/CMakeFiles/number_counter.dir/build
+.PHONY : number_counter/fast
 
 # Convenience name for target.
 my_robot_tutorials/CMakeFiles/number_publisher.dir/rule:
@@ -228,349 +438,19 @@ robot_news_station/fast:
 .PHONY : robot_news_station/fast
 
 # Convenience name for target.
-my_robot_tutorials/CMakeFiles/node_cpp.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/node_cpp.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/node_cpp.dir/rule
+my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/rule:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/rule
+.PHONY : my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/rule
 
 # Convenience name for target.
-node_cpp: my_robot_tutorials/CMakeFiles/node_cpp.dir/rule
+add_two_ints_server: my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/rule
 
-.PHONY : node_cpp
+.PHONY : add_two_ints_server
 
 # fast build rule for target.
-node_cpp/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/node_cpp.dir/build.make my_robot_tutorials/CMakeFiles/node_cpp.dir/build
-.PHONY : node_cpp/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rospy_tutorials_generate_messages_py: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/rule
-
-.PHONY : rospy_tutorials_generate_messages_py
-
-# fast build rule for target.
-rospy_tutorials_generate_messages_py/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_py.dir/build
-.PHONY : rospy_tutorials_generate_messages_py/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rospy_tutorials_generate_messages_nodejs: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/rule
-
-.PHONY : rospy_tutorials_generate_messages_nodejs
-
-# fast build rule for target.
-rospy_tutorials_generate_messages_nodejs/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_nodejs.dir/build
-.PHONY : rospy_tutorials_generate_messages_nodejs/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_py: my_robot_tutorials/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/roscpp_generate_messages_py.dir/build.make my_robot_tutorials/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: my_robot_tutorials/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/roscpp_generate_messages_eus.dir/build.make my_robot_tutorials/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/smartphone.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/smartphone.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/smartphone.dir/rule
-
-# Convenience name for target.
-smartphone: my_robot_tutorials/CMakeFiles/smartphone.dir/rule
-
-.PHONY : smartphone
-
-# fast build rule for target.
-smartphone/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/smartphone.dir/build.make my_robot_tutorials/CMakeFiles/smartphone.dir/build
-.PHONY : smartphone/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: my_robot_tutorials/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make my_robot_tutorials/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rospy_tutorials_generate_messages_lisp: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/rule
-
-.PHONY : rospy_tutorials_generate_messages_lisp
-
-# fast build rule for target.
-rospy_tutorials_generate_messages_lisp/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_lisp.dir/build
-.PHONY : rospy_tutorials_generate_messages_lisp/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: my_robot_tutorials/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make my_robot_tutorials/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rospy_tutorials_generate_messages_eus: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/rule
-
-.PHONY : rospy_tutorials_generate_messages_eus
-
-# fast build rule for target.
-rospy_tutorials_generate_messages_eus/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_eus.dir/build
-.PHONY : rospy_tutorials_generate_messages_eus/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_py: my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/number_counter.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/number_counter.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/number_counter.dir/rule
-
-# Convenience name for target.
-number_counter: my_robot_tutorials/CMakeFiles/number_counter.dir/rule
-
-.PHONY : number_counter
-
-# fast build rule for target.
-number_counter/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/number_counter.dir/build.make my_robot_tutorials/CMakeFiles/number_counter.dir/build
-.PHONY : number_counter/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: my_robot_tutorials/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make my_robot_tutorials/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/build.make my_robot_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make my_robot_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/rule:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/rule
-.PHONY : my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rospy_tutorials_generate_messages_cpp: my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/rule
-
-.PHONY : rospy_tutorials_generate_messages_cpp
-
-# fast build rule for target.
-rospy_tutorials_generate_messages_cpp/fast:
-	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/build.make my_robot_tutorials/CMakeFiles/rospy_tutorials_generate_messages_cpp.dir/build
-.PHONY : rospy_tutorials_generate_messages_cpp/fast
+add_two_ints_server/fast:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/build.make my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/build
+.PHONY : add_two_ints_server/fast
 
 src/add_two_ints_client.o: src/add_two_ints_client.cpp.o
 
@@ -625,6 +505,60 @@ src/add_two_ints_server.s: src/add_two_ints_server.cpp.s
 src/add_two_ints_server.cpp.s:
 	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/build.make my_robot_tutorials/CMakeFiles/add_two_ints_server.dir/src/add_two_ints_server.cpp.s
 .PHONY : src/add_two_ints_server.cpp.s
+
+src/battery_monitor.o: src/battery_monitor.cpp.o
+
+.PHONY : src/battery_monitor.o
+
+# target to build an object file
+src/battery_monitor.cpp.o:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/battery_monitor.dir/build.make my_robot_tutorials/CMakeFiles/battery_monitor.dir/src/battery_monitor.cpp.o
+.PHONY : src/battery_monitor.cpp.o
+
+src/battery_monitor.i: src/battery_monitor.cpp.i
+
+.PHONY : src/battery_monitor.i
+
+# target to preprocess a source file
+src/battery_monitor.cpp.i:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/battery_monitor.dir/build.make my_robot_tutorials/CMakeFiles/battery_monitor.dir/src/battery_monitor.cpp.i
+.PHONY : src/battery_monitor.cpp.i
+
+src/battery_monitor.s: src/battery_monitor.cpp.s
+
+.PHONY : src/battery_monitor.s
+
+# target to generate assembly for a file
+src/battery_monitor.cpp.s:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/battery_monitor.dir/build.make my_robot_tutorials/CMakeFiles/battery_monitor.dir/src/battery_monitor.cpp.s
+.PHONY : src/battery_monitor.cpp.s
+
+src/led_panel.o: src/led_panel.cpp.o
+
+.PHONY : src/led_panel.o
+
+# target to build an object file
+src/led_panel.cpp.o:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/led_panel.dir/build.make my_robot_tutorials/CMakeFiles/led_panel.dir/src/led_panel.cpp.o
+.PHONY : src/led_panel.cpp.o
+
+src/led_panel.i: src/led_panel.cpp.i
+
+.PHONY : src/led_panel.i
+
+# target to preprocess a source file
+src/led_panel.cpp.i:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/led_panel.dir/build.make my_robot_tutorials/CMakeFiles/led_panel.dir/src/led_panel.cpp.i
+.PHONY : src/led_panel.cpp.i
+
+src/led_panel.s: src/led_panel.cpp.s
+
+.PHONY : src/led_panel.s
+
+# target to generate assembly for a file
+src/led_panel.cpp.s:
+	cd /home/k/ROS-Melodic-Course/ros_ws/build && $(MAKE) -f my_robot_tutorials/CMakeFiles/led_panel.dir/build.make my_robot_tutorials/CMakeFiles/led_panel.dir/src/led_panel.cpp.s
+.PHONY : src/led_panel.cpp.s
 
 src/my_first_node.o: src/my_first_node.cpp.o
 
@@ -767,46 +701,44 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... add_two_ints_client"
-	@echo "... add_two_ints_server"
-	@echo "... number_publisher"
-	@echo "... robot_news_station"
-	@echo "... node_cpp"
-	@echo "... rospy_tutorials_generate_messages_py"
-	@echo "... rospy_tutorials_generate_messages_nodejs"
 	@echo "... list_install_components"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... roscpp_generate_messages_eus"
+	@echo "... rebuild_cache"
+	@echo "... install/strip"
+	@echo "... led_panel"
+	@echo "... add_two_ints_client"
+	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... std_srvs_generate_messages_py"
+	@echo "... rospy_tutorials_generate_messages_lisp"
+	@echo "... test"
+	@echo "... std_srvs_generate_messages_eus"
+	@echo "... rospy_tutorials_generate_messages_cpp"
+	@echo "... node_cpp"
+	@echo "... install"
+	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... rospy_tutorials_generate_messages_eus"
+	@echo "... rospy_tutorials_generate_messages_nodejs"
+	@echo "... rospy_tutorials_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... smartphone"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... rospy_tutorials_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... install"
-	@echo "... rospy_tutorials_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... battery_monitor"
+	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... number_counter"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... rospy_tutorials_generate_messages_cpp"
+	@echo "... number_publisher"
+	@echo "... robot_news_station"
+	@echo "... add_two_ints_server"
 	@echo "... src/add_two_ints_client.o"
 	@echo "... src/add_two_ints_client.i"
 	@echo "... src/add_two_ints_client.s"
 	@echo "... src/add_two_ints_server.o"
 	@echo "... src/add_two_ints_server.i"
 	@echo "... src/add_two_ints_server.s"
+	@echo "... src/battery_monitor.o"
+	@echo "... src/battery_monitor.i"
+	@echo "... src/battery_monitor.s"
+	@echo "... src/led_panel.o"
+	@echo "... src/led_panel.i"
+	@echo "... src/led_panel.s"
 	@echo "... src/my_first_node.o"
 	@echo "... src/my_first_node.i"
 	@echo "... src/my_first_node.s"
